@@ -6,7 +6,7 @@ public class Order {
     private Double basic;
     private Double discount;
 
-    public Order() {
+    public Order(Double orderId, Double basic, Double discount) {
     }
 
     public Order(Integer orderId, Double basic, Double discount) {
