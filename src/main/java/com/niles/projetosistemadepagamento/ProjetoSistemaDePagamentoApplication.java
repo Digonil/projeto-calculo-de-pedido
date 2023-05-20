@@ -25,25 +25,35 @@ public class ProjetoSistemaDePagamentoApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Type the order identification: ");
-        Integer orderId = sc.nextInt();
+        Integer input = 1;
 
-        System.out.println("Type the basic value: ");
-        Double basic = sc.nextDouble();
+        while (input == 1) {
 
-        System.out.println("Type the discount: ");
-        Double discount = sc.nextDouble();
+            System.out.println("Type the order identification: ");
+            Integer orderId = sc.nextInt();
 
-        Order order = new Order(orderId, basic, discount);
+            System.out.println("Type the basic value: ");
+            Double basic = sc.nextDouble();
 
-        Double totalValue = orderService.total(order);
+            System.out.println("Type the discount: ");
+            Double discount = sc.nextDouble();
 
-        System.out.println("Order identification: " + order.getOrderId());
-        System.out.println("Total value: R$ " + totalValue);
+            Order order = new Order(orderId, basic, discount);
 
+            Double totalValue = orderService.total(order);
+
+            System.out.println("Order identification: " + order.getOrderId());
+            System.out.println("Total value: R$ " + totalValue);
+
+            System.out.println("Insert 1 to calculate the another product price or 0 to exit: ");
+            input = sc.nextInt();
+        }
+
+        System.out.println("Thank you!!!");
 
     }
 }
